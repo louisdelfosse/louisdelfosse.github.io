@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formation ROS 2 et Nav2 — Louis Delfosse</title>
+  <meta name="description" content="Formation ROS 2 Humble et navigation autonome Nav2 (IRT Jules Verne) : nœuds, topics, services, actions, turtlesim, TurtleBot3, AMCL, SLAM Toolbox.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1a33'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f08a24'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Navigation principale">
+    <a class="brand" href="../index.html"><span class="dot"></span>Louis Delfosse <small>// mécatronique</small></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a class="link" href="../index.html#competences">Compétences</a></li>
+      <li><a class="link" href="../index.html#projets" aria-current="page">Projets</a></li>
+      <li><a class="link" href="../index.html#parcours">Parcours</a></li>
+      <li><a class="link" href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="rail"></div>
+</header>
+
+<main>
+  <section class="project-hero" id="haut" data-waypoint="début">
+    <div class="wrap">
+      <a class="crumb" href="../index.html#projets">← tous les projets</a>
+      <h1>ROS 2 et navigation autonome Nav2</h1>
+      <p class="lead">Les bases de ROS 2 et la navigation autonome d'un robot mobile avec Nav2, de l'architecture logicielle jusqu'au diagnostic.</p>
+      <div class="tags"><span class="tag">ROS 2 Humble</span><span class="tag">Nav2</span><span class="tag">Python rclpy</span><span class="tag">turtlesim</span><span class="tag">TurtleBot3</span><span class="tag">AMCL</span><span class="tag">SLAM Toolbox</span></div>
+      <div class="facts">
+        <div class="fact"><b>Cadre</b><span>Formation IRT Jules Verne, EIGSI</span></div>
+        <div class="fact"><b>Période</b><span>Novembre 2026</span></div>
+        <div class="fact"><b>Robot</b><span>turtlesim, TurtleBot3 (simulation)</span></div>
+        <div class="fact"><b>Outils</b><span>ROS 2, Pixi, Git, VS Code</span></div>
+      </div>
+    </div>
+  </section>
+  <article class="article">
+    <div class="wrap">
+
+      <h2 id="contexte" data-waypoint="contexte"><span class="num">01</span>Contexte</h2>
+      <p>Formation donnée à l'EIGSI par l'<strong>IRT Jules Verne</strong> : les bases de ROS 2, puis la navigation autonome avec Nav2, avec un fil rouge industriel (une cellule robotisée de tri et un robot de livraison). J'ai réalisé tous les TP sur mon PC, sous Windows, avec un environnement Pixi.</p>
+      <figure><img src="../assets/img/ros2/plateau-robotique-eigsi.jpg" alt="Plateau de robotique de l'EIGSI avec des TurtleBot3 et des robots Mecanum" loading="lazy"><figcaption>Le plateau de robotique de l'école : TurtleBot3 (en haut) et robots Mecanum à lidar (à droite)</figcaption></figure>
+
+      <h2 id="ros2" data-waypoint="ROS 2"><span class="num">02</span>ROS 2 et architecture modulaire</h2>
+      <p>Un système robotique se découpe en <strong>nœuds</strong>, un par responsabilité, qui échangent des messages sur des <strong>topics</strong>. Exemple : une cellule <em>pick and place</em>.</p>
+      <figure><img src="../assets/img/ros2/pick-and-place-noeuds-topics.jpg" alt="Cellule pick and place : nœuds et topics ROS 2" loading="lazy"><figcaption>Une cellule pick and place découpée en nœuds (rectangles) et topics (étiquettes violettes)</figcaption></figure>
+      <p>Trois façons d'échanger, à choisir selon le besoin :</p>
+      <ul class="checks">
+        <li><strong>Topic</strong> : un flux continu, sans réponse (image, position, vitesse).</li>
+        <li><strong>Service</strong> : une question, une réponse (lire un état, réinitialiser).</li>
+        <li><strong>Action</strong> : une tâche longue, suivie et annulable (rejoindre une pose).</li>
+      </ul>
+      <div class="gallery g3">
+        <figure><img src="../assets/img/ros2/topic.jpg" alt="Topic ROS 2" loading="lazy"><figcaption>Topic</figcaption></figure>
+        <figure><img src="../assets/img/ros2/service.jpg" alt="Service ROS 2" loading="lazy"><figcaption>Service</figcaption></figure>
+        <figure><img src="../assets/img/ros2/action.jpg" alt="Action ROS 2" loading="lazy"><figcaption>Action</figcaption></figure>
+      </div>
+
+      <h2 id="tp1" data-waypoint="tortue"><span class="num">03</span>TP 1 : la tortue livreuse</h2>
+      <p>Premiers nœuds Python avec <code>rclpy</code> sur <strong>turtlesim</strong> : piloter la tortue en publiant des vitesses sur <code>cmd_vel</code>, puis enchaîner des livraisons. <code>rqt_graph</code> montre qui parle à qui.</p>
+      <figure><img src="../assets/img/ros2/turtlesim-rqt-graph.jpg" alt="Turtlesim et le graphe rqt_graph" loading="lazy"><figcaption>La tortue et le graphe des nœuds : /teleop publie sur cmd_vel, /turtlesim écoute</figcaption></figure>
+
+      <h2 id="nav2" data-waypoint="Nav2"><span class="num">04</span>TP 2 : navigation autonome avec Nav2</h2>
+      <p>Missions de livraison avec un <strong>TurtleBot3 Burger</strong> simulé (ROS 2 Humble). Le robot doit aller d'un point à un autre, éviter les obstacles, ou signaler un échec qu'on sait expliquer.</p>
+      <ul class="checks">
+        <li>Repères et transformations (<strong>TF</strong>) : carte, odométrie, base, capteurs.</li>
+        <li>Localisation <strong>AMCL</strong>, cartographie <strong>SLAM Toolbox</strong>, costmaps.</li>
+        <li>Planner, controller et <em>behavior trees</em> ; diagnostic d'une panne couche par couche.</li>
+      </ul>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/ros2/arbre-tf.jpg" alt="Arbre des repères TF" loading="lazy"><figcaption>L'arbre des repères TF du robot</figcaption></figure>
+        <figure><img src="../assets/img/ros2/nav2-schema-global.jpg" alt="Schéma global de Nav2" loading="lazy"><figcaption>Toute la chaîne Nav2, du matériel à la mission</figcaption></figure>
+      </div>
+
+      <h2 id="lien" data-waypoint="bilan"><span class="num">05</span>Le lien avec mes autres projets</h2>
+      <div class="callout">
+        J'ai codé moi-même la grid map, le scan matching et un SLAM dans le <a href="lidar.html">projet lidar</a>. Nav2 et SLAM Toolbox reprennent ces mêmes briques dans des outils industriels.
+      </div>
+      <p class="muted" style="font-size:.85rem;color:#6b7a90">Les schémas de cette page viennent de fiches de révision interactives que j'ai réalisées pour la formation.</p>
+
+      <div class="next-prev">
+        <a href="pendule.html">← Pendule et robot auto-équilibré</a>
+        <a href="pie-edf.html">Guidage RA pour EDF →</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Louis Delfosse</span>
+    <span>Site fait main en HTML/CSS · hébergé sur GitHub Pages</span>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

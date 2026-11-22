@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Table élévatrice d'atelier — Louis Delfosse</title>
+  <meta name="description" content="Dimensionnement d'une table élévatrice à ciseaux pour monoplace Formula Student : cinématique, vérin hydraulique, RDM 7.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1a33'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f08a24'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Navigation principale">
+    <a class="brand" href="../index.html"><span class="dot"></span>Louis Delfosse <small>// mécatronique</small></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a class="link" href="../index.html#competences">Compétences</a></li>
+      <li><a class="link" href="../index.html#projets" aria-current="page">Projets</a></li>
+      <li><a class="link" href="../index.html#parcours">Parcours</a></li>
+      <li><a class="link" href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="rail"></div>
+</header>
+
+<main>
+  <section class="project-hero" id="haut" data-waypoint="début">
+    <div class="wrap">
+      <a class="crumb" href="../index.html#projets">← tous les projets</a>
+      <h1>Table élévatrice d'atelier pour monoplace</h1>
+      <p class="lead">Le dimensionnement complet d'une table élévatrice à ciseaux, mobile et autonome, pour la voiture du Formula Student de l'école.</p>
+      <div class="tags"><span class="tag">Cinématique</span><span class="tag">RDM 7</span><span class="tag">Hydraulique</span><span class="tag">Note de calcul Excel</span><span class="tag">Plans</span></div>
+      <div class="facts">
+        <div class="fact"><b>Cadre</b><span>Projet de conception mécanique 3A</span></div>
+        <div class="fact"><b>Période</b><span>2025</span></div>
+        <div class="fact"><b>Équipe</b><span>3 élèves-ingénieurs</span></div>
+        <div class="fact"><b>Mon rôle</b><span>Chef de projet &amp; calculs</span></div>
+              </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="wrap">
+
+      <h2 id="contexte" data-waypoint="contexte"><span class="num">01</span>Cahier des charges</h2>
+      <ul class="checks">
+        <li>Soulever la monoplace sans pilote, jusqu'à <strong>300 kg</strong>.</li>
+        <li>Plateforme entre <strong>150 mm</strong> (position basse) et <strong>750 mm</strong> (position haute).</li>
+        <li>Montée en moins de 120 s, descente en moins de 30 s.</li>
+        <li><strong>Coefficient de sécurité de 6</strong> sur toutes les pièces mécaniques.</li>
+        <li>Table mobile et autonome en énergie : pompe manuelle, ou motorisée sur batterie d'outillage 18 V.</li>
+      </ul>
+      <figure><img src="../assets/img/table/cao-table-monoplace.jpg" alt="Modèle 3D de la table élévatrice avec la monoplace" loading="lazy"><figcaption>La table et la monoplace</figcaption></figure>
+
+      <h2 id="role" data-waypoint="mon rôle"><span class="num">02</span>Mon rôle</h2>
+      <p>L'équipe n'avait pas de rôles fixés. J'ai pris la <strong>coordination du projet</strong> (planning, répartition des tâches, suivi des livrables : note de calcul, plans, rapport) et j'ai participé aux <strong>calculs de dimensionnement</strong>.</p>
+
+      <h2 id="cinematique" data-waypoint="cinématique"><span class="num">03</span>Cinématique et vérin</h2>
+      <p>Nous avons comparé trois positions possibles pour le vérin, en calculant pour chacune son allongement en fonction de la hauteur. La position entre les deux bras du ciseau a été retenue. Ses points d'ancrage ont été optimisés dans une note de calcul Excel pour réduire l'effort, qui est maximal au début de la montée.</p>
+      <p>Une vérification sous RDM 7 donne un écart de 0,23 % avec nos calculs. Côté hydraulique, nous avons choisi un vérin de 60 mm de diamètre et une pompe manuelle. Il faut 65 coups de pompe, soit environ <strong>117 s de montée</strong>, ce qui respecte la limite de 120 s.</p>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/table/schema-verins.jpg" alt="Schéma des positions de vérin étudiées" loading="lazy"><figcaption>Les trois positions de vérin étudiées</figcaption></figure>
+        <figure><img src="../assets/img/table/schema-cinematique.jpg" alt="Schéma cinématique paramétré" loading="lazy"><figcaption>Schéma cinématique paramétré</figcaption></figure>
+      </div>
+
+      <h2 id="dimensionnement" data-waypoint="dimensionnement"><span class="num">04</span>Dimensionnement</h2>
+      <ul class="checks">
+        <li><strong>Axes</strong> en acier S235, avec des coussinets autolubrifiants choisis selon la pression diamétrale.</li>
+        <li><strong>Cadres et montants</strong> modélisés sous RDM 7, puis redimensionnés jusqu'à atteindre le coefficient de sécurité de 6. Pour les montants, on passe d'un CS de 3,5 à 6,9.</li>
+        <li><strong>Liaisons</strong> : solutions techniques détaillées pour les pivots et les pivots glissants.</li>
+      </ul>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/table/rdm7-montants.jpg" alt="Simulation RDM 7 des montants" loading="lazy"><figcaption>Simulation RDM 7 des montants</figcaption></figure>
+        <figure><img src="../assets/img/table/plan-atelier.jpg" alt="Plan d'atelier coté" loading="lazy"><figcaption>Plan d'atelier coté (A3)</figcaption></figure>
+      </div>
+
+      <h2 id="securite" data-waypoint="sécurité"><span class="num">05</span>Sécurité</h2>
+      <p>Pour l'immobilisation en position haute, nous avons conçu un verrou anti-oubli : un axe rappelé par ressort suit la glissière et se bloque automatiquement en haut. Il se libère avec une simple ficelle, sans avoir à passer sous la table.</p>
+      <figure><img src="../assets/img/table/securite-croquis.jpg" alt="Croquis du verrou de sécurité" loading="lazy"><figcaption>Croquis du verrou en position haute</figcaption></figure>
+
+      <h2 id="resultats" data-waypoint="résultats"><span class="num">06</span>Résultats</h2>
+      <ul class="checks">
+        <li>La conception respecte le cahier des charges : 300 kg, montée en moins de 120 s, CS ≥ 6 sur toute la structure.</li>
+        <li>Une note de calcul Excel complète, réutilisable si la charge ou les cotes changent.</li>
+      </ul>
+
+      <div class="next-prev">
+        <a href="liberteau.html">← Libert'Eau</a>
+        <a href="pcb-avr.html">Carte PCB et AVR →</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Louis Delfosse</span>
+    <span>Site fait main en HTML/CSS · hébergé sur GitHub Pages</span>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

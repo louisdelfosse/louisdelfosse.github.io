@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guidage en réalité augmentée pour EDF — Louis Delfosse</title>
+  <meta name="description" content="Projet PIE pour EDF : guider l'opérateur lors du bouchage de tubes de condenseur, de la projection Poka-Yoke à la réalité augmentée (3DEXPERIENCE, DAE).">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1a33'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f08a24'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Navigation principale">
+    <a class="brand" href="../index.html"><span class="dot"></span>Louis Delfosse <small>// mécatronique</small></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a class="link" href="../index.html#competences">Compétences</a></li>
+      <li><a class="link" href="../index.html#projets" aria-current="page">Projets</a></li>
+      <li><a class="link" href="../index.html#parcours">Parcours</a></li>
+      <li><a class="link" href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="rail"></div>
+</header>
+
+<main>
+  <section class="project-hero" id="haut" data-waypoint="début">
+    <div class="wrap">
+      <a class="crumb" href="../index.html#projets">← tous les projets</a>
+      <h1>Guider le bouchage de tubes en réalité augmentée</h1>
+      <p class="lead">Un outil pour qu'un opérateur EDF trouve le bon tube parmi des milliers, sans erreur : de la projection à la réalité augmentée.</p>
+      <div class="tags"><span class="tag">Réalité augmentée</span><span class="tag">3DEXPERIENCE</span><span class="tag">Python</span><span class="tag">Poka-Yoke</span><span class="tag">Client EDF</span></div>
+      <div class="facts">
+        <div class="fact"><b>Cadre</b><span>Projet Innovation et Entreprise, EIGSI</span></div>
+        <div class="fact"><b>Période</b><span>2026 – 2027</span></div>
+        <div class="fact"><b>Équipe</b><span>Groupe de 3</span></div>
+        <div class="fact"><b>Client</b><span>EDF</span></div>
+      </div>
+    </div>
+  </section>
+  <article class="article">
+    <div class="wrap">
+
+      <h2 id="contexte" data-waypoint="contexte"><span class="num">01</span>Contexte</h2>
+      <p>Dans les condenseurs des centrales nucléaires, certains tubes défectueux doivent être bouchés. Sur une plaque qui compte des milliers de tubes identiques, l'opérateur doit trouver le bon tube sans se tromper. Le projet, mené pour <strong>EDF</strong> dans le cadre du Projet Innovation et Entreprise (PIE) de l'EIGSI, vise à <strong>guider l'opérateur</strong> pour éviter les erreurs.</p>
+      <figure><img src="../assets/img/pie/illustration-ra.svg" alt="Illustration de principe : une tablette en réalité augmentée met en évidence les tubes à boucher sur une plaque" loading="lazy"><figcaption>Le principe : la tablette reconnaît un repère et met en évidence les tubes à boucher (illustration, données fictives)</figcaption></figure>
+
+      <h2 id="role" data-waypoint="mon rôle"><span class="num">02</span>Mon rôle</h2>
+      <p>Projet en <strong>groupe de 3</strong>, avec un client EDF à qui nous présentons l'avancement. Nous travaillons ensemble sur toute la chaîne, de la CAO au scénario de réalité augmentée.</p>
+
+      <h2 id="v1" data-waypoint="projection"><span class="num">03</span>Première piste : la projection</h2>
+      <p>Dans un premier temps, nous avons étudié un système de projection <strong>Poka-Yoke</strong> (anti-erreur) : une tablette, un Raspberry Pi et un vidéoprojecteur affichent directement sur la plaque les tubes à boucher. Les plans vectoriels des plaques étaient générés automatiquement par un script Python (SVG, PDF, DXF) à partir des données des tubes. L'objectif de coût était de rester sous 70 000 €, face à la solution laser existante.</p>
+      <p>Cette piste a été abandonnée : elle n'était pas adaptée au terrain (échafaudages, encombrement autour de la plaque).</p>
+
+      <h2 id="ra" data-waypoint="RA"><span class="num">04</span>Deuxième piste : la réalité augmentée</h2>
+      <p>Nous sommes passés à la <strong>réalité augmentée</strong>. La chaîne va des données des tubes jusqu'au guidage de l'opérateur sur le terrain :</p>
+      <figure><img src="../assets/img/pie/chaine-cao-ra.svg" alt="Chaîne logicielle : données, script, CAO, scénario, terrain" loading="lazy"><figcaption>La chaîne de la CAO à la réalité augmentée</figcaption></figure>
+      <ul class="checks">
+        <li>Un algorithme reconstruit la plaque et repère les tubes bouchés à partir de l'export des positions.</li>
+        <li>La plaque et des <strong>repères</strong> (pièces détrompeuses) sont modélisés sous 3DEXPERIENCE / CATIA.</li>
+        <li>Le scénario de guidage est construit dans DAE Auteur, puis joué dans DAE Player, qui reconnaît le repère pour caler l'affichage.</li>
+      </ul>
+
+      <h2 id="suite" data-waypoint="état"><span class="num">05</span>Où en est le projet</h2>
+      <ul class="checks">
+        <li>Les étapes de la chaîne sont en place, mais le passage d'un logiciel à l'autre se fait encore à la main.</li>
+        <li>Reste à faire : fiabiliser l'affichage du bouchon en RA et documenter la chaîne pour qu'un autre groupe puisse la reprendre.</li>
+        <li>Points ouverts avec le client : connexion Wi-Fi sur site, licences logicielles, placement des repères sur une grande plaque.</li>
+      </ul>
+      <div class="callout">
+        <strong>Confidentialité :</strong> aucune donnée ni image interne à EDF n'est publiée ici. Les visuels sont des illustrations de principe.
+      </div>
+
+      <div class="next-prev">
+        <a href="ros2.html">← Formation ROS 2</a>
+        <a href="robot-suiveur.html">Robot suiveur de ligne →</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Louis Delfosse</span>
+    <span>Site fait main en HTML/CSS · hébergé sur GitHub Pages</span>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

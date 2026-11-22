@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Préhenseur mécatronique — Louis Delfosse</title>
+  <meta name="description" content="Conception complète d'un bras robotisé et de son préhenseur : CAO 3DEXPERIENCE, impression SLS, cartes PCB EAGLE. Projet mécatronique EIGSI 2025-2026.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1a33'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f08a24'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Navigation principale">
+    <a class="brand" href="../index.html"><span class="dot"></span>Louis Delfosse <small>// mécatronique</small></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a class="link" href="../index.html#competences">Compétences</a></li>
+      <li><a class="link" href="../index.html#projets" aria-current="page">Projets</a></li>
+      <li><a class="link" href="../index.html#parcours">Parcours</a></li>
+      <li><a class="link" href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="rail"></div>
+</header>
+
+<main>
+  <section class="project-hero" id="haut" data-waypoint="début">
+    <div class="wrap">
+      <a class="crumb" href="../index.html#projets">← tous les projets</a>
+      <h1>Préhenseur mécatronique — Mecatro-bot</h1>
+      <p class="lead">Un bras robotisé et sa pince, conçus à partir d'une feuille blanche pour déplacer différents objets vers plusieurs emplacements selon un cycle défini.</p>
+      <div class="tags"><span class="tag">CAO 3DEXPERIENCE</span><span class="tag">Impression 3D SLS</span><span class="tag">PCB EAGLE</span><span class="tag">Arduino Mega</span><span class="tag">Retour d'effort</span><span class="tag">Méthode agile</span></div>
+      <div class="facts">
+        <div class="fact"><b>Cadre</b><span>Projet mécatronique 4A, EIGSI</span></div>
+        <div class="fact"><b>Période</b><span>2025 – 2026</span></div>
+        <div class="fact"><b>Équipe</b><span>4 élèves-ingénieurs</span></div>
+        <div class="fact"><b>Mon rôle</b><span>Conception mécanique &amp; PCB</span></div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="wrap">
+
+      <h2 id="contexte" data-waypoint="contexte"><span class="num">01</span>Contexte</h2>
+      <p>Le projet était un jeu de rôle : un enseignant jouait le client et exprimait un besoin qui évoluait en cours de route. Un obstacle a par exemple été ajouté sur la trajectoire en milieu de projet, ce qui a obligé à adapter la conception et le code. Nous avons travaillé en sprints, avec des macro-tâches découpées en micro-tâches.</p>
+      <p>L'équipe : deux personnes en mécanique (dont moi), une au code et une à la gestion de projet.</p>
+      <figure><video controls preload="metadata" playsinline poster="../assets/img/prehenseur/softpaws-poster.jpg"><source src="../assets/img/prehenseur/softpaws.mp4" type="video/mp4">Votre navigateur ne lit pas la vidéo.</video><figcaption>La vidéo de présentation de SoftPaws, réalisée par l'équipe (30 s)</figcaption></figure>
+
+      <h2 id="role" data-waypoint="mon rôle"><span class="num">02</span>Mon rôle</h2>
+      <ul class="checks">
+        <li><strong>Toute la conception 3D</strong> sous 3DEXPERIENCE : bras articulé, mécanisme de préhension, boîtier électronique (environ 50 pièces).</li>
+        <li><strong>Fabrication et assemblage</strong> : préparation pour l'impression SLS, dépoudrage, contrôle, montage et câblage.</li>
+        <li><strong>Cartes électroniques</strong> sous EAGLE, conçues en binôme : la carte IHM et la carte de puissance.</li>
+      </ul>
+
+      <h2 id="cao" data-waypoint="CAO"><span class="num">03</span>Conception 3D</h2>
+      <p>La pince, que nous avons baptisée <strong>SoftPaws</strong>, est actionnée par une vis centrale et des engrenages qui ferment les bras de préhension. Une <strong>jauge de contrainte</strong> mesure l'effort de serrage : ce retour d'effort permet de doser le serrage, d'où le « Soft » de SoftPaws. Chaque pièce a été dessinée en tenant compte des contraintes de l'impression SLS : épaisseurs minimales, jeux de fonctionnement, pas de supports.</p>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/prehenseur/cao-iso.jpg" alt="Vue isométrique de l'assemblage complet avec boîtier" loading="lazy"><figcaption>Assemblage complet avec boîtier électronique</figcaption></figure>
+        <figure><img src="../assets/img/prehenseur/cao-laterale.jpg" alt="Vue latérale du bras articulé et de l'effecteur" loading="lazy"><figcaption>Vue latérale : bras articulé et effecteur</figcaption></figure>
+      </div>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/prehenseur/cao-mecanisme.jpg" alt="Détail du mécanisme : vis centrale, engrenages et bras" loading="lazy"><figcaption>Mécanisme d'actionnement : vis centrale et engrenages</figcaption></figure>
+        <figure><img src="../assets/img/prehenseur/prehenseur-cao.jpg" alt="Modèle CAO du préhenseur" loading="lazy"><figcaption>Préhenseur en CAO</figcaption></figure>
+      </div>
+
+      <h2 id="fabrication" data-waypoint="fabrication"><span class="num">04</span>Fabrication</h2>
+      <p>Toutes les pièces mécaniques ont été imprimées par frittage laser (SLS) en nylon. Ce procédé produit des géométries complexes sans supports et des pièces fonctionnelles qui s'assemblent directement.</p>
+      <div class="gallery g3">
+        <figure><img src="../assets/img/prehenseur/sls-pieces.jpg" alt="Pièces frittées SLS juste après dépoudrage" loading="lazy"><figcaption>Pièces SLS dépoudrées</figcaption></figure>
+        <figure><img src="../assets/img/prehenseur/effecteur-cable.jpg" alt="Effecteur câblé avant intégration" loading="lazy"><figcaption>Effecteur câblé</figcaption></figure>
+        <figure><img src="../assets/img/prehenseur/prehenseur-reel.jpg" alt="Préhenseur assemblé" loading="lazy"><figcaption>Préhenseur assemblé</figcaption></figure>
+      </div>
+
+      <h2 id="electronique" data-waypoint="électronique"><span class="num">05</span>Électronique</h2>
+      <p><strong>Carte IHM</strong> : un shield pour Arduino Mega 2560, qui s'enfiche sur les autres cartes. Elle porte trois boutons poussoirs avec LED d'état, un joystick deux axes, un écran I²C et un connecteur pour la jauge de contrainte du retour d'effort.</p>
+      <p><strong>Carte de puissance</strong> : un microcontrôleur AVR128DB48, un pont en H VNH7070 pour le moteur et une EEPROM.</p>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/prehenseur/pcb-ihm-avant.jpg" alt="PCB IHM, face composants" loading="lazy"><figcaption>PCB IHM : face composants</figcaption></figure>
+        <figure><img src="../assets/img/prehenseur/pcb-ihm-arriere.jpg" alt="PCB IHM, routage face arrière" loading="lazy"><figcaption>PCB IHM : routage face arrière</figcaption></figure>
+      </div>
+
+      <h2 id="resultats" data-waypoint="résultats"><span class="num">06</span>Résultats</h2>
+      <ul class="checks">
+        <li>La démonstration finale au client a validé tous les besoins, y compris ceux ajoutés en cours de projet.</li>
+        <li>Notre groupe a obtenu la meilleure note de la promotion.</li>
+        <li>Une vidéo de présentation a été réalisée (voir plus haut).</li>
+      </ul>
+      <div class="callout warn">
+        <strong>Ce que je referais autrement :</strong> les PCB ont été fabriqués, mais nous n'avons pas eu le temps de les souder. La démonstration s'est faite sur breadboard. Lancer la fabrication des cartes plus tôt dans le planning aurait permis de les intégrer.
+      </div>
+
+      <div class="next-prev">
+        <a href="../index.html#projets">← Tous les projets</a>
+        <a href="lidar.html">Lidar et SLAM →</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Louis Delfosse</span>
+    <span>Site fait main en HTML/CSS · hébergé sur GitHub Pages</span>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

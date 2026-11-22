@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mangeoire connectée pour oiseaux — Louis Delfosse</title>
+  <meta name="description" content="Projet Sciences de l'Ingénieur EIGSI : une mangeoire connectée installée dans un arbre de l'école. Mon rôle : la fixation et le système de descente de la plateforme eau / nourriture.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1a33'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f08a24'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Navigation principale">
+    <a class="brand" href="../index.html"><span class="dot"></span>Louis Delfosse <small>// mécatronique</small></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a class="link" href="../index.html#competences">Compétences</a></li>
+      <li><a class="link" href="../index.html#projets" aria-current="page">Projets</a></li>
+      <li><a class="link" href="../index.html#parcours">Parcours</a></li>
+      <li><a class="link" href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="rail"></div>
+</header>
+
+<main>
+  <section class="project-hero" id="haut" data-waypoint="début">
+    <div class="wrap">
+      <a class="crumb" href="../index.html#projets">← tous les projets</a>
+      <h1>Mangeoire connectée pour oiseaux</h1>
+      <p class="lead">Une mangeoire équipée de capteurs, installée dans un arbre de l'école, avec une plateforme d'eau et de nourriture qu'on descend à hauteur d'enfant pour la recharger.</p>
+      <div class="tags"><span class="tag">Conception mécanique</span><span class="tag">Croquis</span><span class="tag">Schéma cinématique</span><span class="tag">Fabrication bois</span><span class="tag">Arduino</span></div>
+      <div class="facts">
+        <div class="fact"><b>Cadre</b><span>Projet Sciences de l'Ingénieur, EIGSI</span></div>
+        <div class="fact"><b>Période</b><span>2022 – 2023</span></div>
+        <div class="fact"><b>Équipe</b><span>Environ 25 élèves, par pôles</span></div>
+        <div class="fact"><b>Mon pôle</b><span>Mécanique : fixation et descente</span></div>
+      </div>
+    </div>
+  </section>
+  <article class="article">
+    <div class="wrap">
+
+      <h2 id="contexte" data-waypoint="contexte"><span class="num">01</span>Contexte</h2>
+      <p>Concevoir et fabriquer une <strong>mangeoire connectée</strong> pour observer la faune autour de l'école. Elle devait accueillir des capteurs (poids, mouvement, son, température…) et une transmission radio, tout en restant facile à remplir en eau et en nourriture.</p>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/mangeoire/mangeoire-arbre.jpg" alt="Mangeoire connectée terminée, installée dans un arbre" loading="lazy"><figcaption>La mangeoire terminée, installée dans un arbre de l'école</figcaption></figure>
+        <figure><img src="../assets/img/mangeoire/interieur-treuil.jpg" alt="Intérieur de la mangeoire : arbre d'enroulement, cordes et capteur de mouvement" loading="lazy"><figcaption>Vue de l'intérieur : l'arbre d'enroulement, les cordes et le capteur de mouvement</figcaption></figure>
+      </div>
+
+      <h2 id="role" data-waypoint="mon rôle"><span class="num">02</span>Mon rôle</h2>
+      <p>Nous étions environ 25, répartis en pôles. J'étais dans le <strong>pôle mécanique</strong>. J'ai cherché et dessiné les solutions de <strong>fixation</strong> de la mangeoire, puis conçu le <strong>système de descente</strong> de la plateforme.</p>
+
+      <h2 id="fixation" data-waypoint="fixation"><span class="num">03</span>Fixer la mangeoire</h2>
+      <p>J'ai étudié trois façons d'installer la mangeoire : <strong>suspendue à une branche</strong>, <strong>posée sur un poteau</strong> ou <strong>fixée au tronc</strong>. Chaque piste a fait l'objet d'un croquis pour la comparer avec l'équipe.</p>
+      <div class="gallery g3">
+        <figure><img src="../assets/img/mangeoire/fixation-arbre.jpg" alt="Croquis de fixation de la mangeoire contre le tronc" loading="lazy"><figcaption>Fixation au tronc par tasseaux</figcaption></figure>
+        <figure><img src="../assets/img/mangeoire/fixation-dessus.jpg" alt="Croquis de fixation vu de dessus autour du tronc" loading="lazy"><figcaption>La même fixation, vue de dessus</figcaption></figure>
+        <figure><img src="../assets/img/mangeoire/fixation-poteau.jpg" alt="Croquis de fixation de la mangeoire sur un poteau" loading="lazy"><figcaption>Variante sur poteau</figcaption></figure>
+      </div>
+
+      <h2 id="descente" data-waypoint="descente"><span class="num">04</span>Descendre l'eau et la nourriture</h2>
+      <p>Problème : une mangeoire en hauteur est difficile à recharger. J'ai proposé une <strong>plateforme suspendue à une corde</strong>, qui passe sur deux poulies et s'enroule sur un tambour. Une <strong>manivelle amovible</strong>, reliée par un renvoi d'angle, fait monter ou descendre la plateforme : on ne l'accroche que pour recharger, donc personne ne peut manipuler la plateforme sans elle. La longueur de corde est calculée pour que la plateforme arrive <strong>à hauteur d'enfant</strong> en position basse.</p>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/mangeoire/croquis-descente.jpg" alt="Croquis du système de descente : poulies, corde, tambour et manivelle" loading="lazy"><figcaption>Le croquis de la solution : poulies, corde, tambour, manivelle et renvoi d'angle</figcaption></figure>
+        <figure><img src="../assets/img/mangeoire/schema-cinematique.jpg" alt="Schéma cinématique du système de descente" loading="lazy"><figcaption>Le schéma cinématique : bâti, corde, enrouleur, manivelle</figcaption></figure>
+      </div>
+
+      <h2 id="fabrication" data-waypoint="fabrication"><span class="num">05</span>De l'idée à la mangeoire</h2>
+      <p>Le caisson est en pin, avec une entrée en ogive pour les oiseaux. Une fois réalisé, le système de descente comprend un arbre en aluminium et des tambours en bois, qui enroulent deux cordes portant la plateforme. Celle-ci accueille un distributeur d'eau à bouteille renversée et un tube à graines.</p>
+      <div class="gallery g3">
+        <figure><img src="../assets/img/mangeoire/caisson.jpg" alt="Caisson en pin avec son entrée en ogive, en cours de fabrication" loading="lazy"><figcaption>Le caisson en cours de fabrication</figcaption></figure>
+        <figure><img src="../assets/img/mangeoire/plateforme.jpg" alt="Plateforme avec distributeur d'eau et tube à graines" loading="lazy"><figcaption>La plateforme eau et nourriture</figcaption></figure>
+        <figure><img src="../assets/img/mangeoire/montage.jpg" alt="Montage de l'arbre d'enroulement et de l'électronique dans le caisson" loading="lazy"><figcaption>Montage de l'arbre d'enroulement et de l'électronique</figcaption></figure>
+      </div>
+      <p>Côté embarqué, l'équipe a choisi d'utiliser la jauge de poids comme <strong>capteur de garde</strong>. Elle seule reste active et réveille les autres capteurs quand un oiseau se pose. La consommation passe ainsi d'environ 820 mA à 51,5 mA, ce qui permet de tenir les <strong>7 jours d'autonomie</strong> demandés.</p>
+
+      <h2 id="bilan" data-waypoint="bilan"><span class="num">06</span>Ce que j'en retiens</h2>
+      <ul class="checks">
+        <li>Passer d'un besoin d'usage (recharger facilement, sans laisser la plateforme accessible à tous) à une solution mécanique simple, dessinée puis fabriquée.</li>
+        <li>Comparer plusieurs pistes sur croquis avant de choisir, et les traduire en schéma cinématique.</li>
+        <li>Intégrer la mécanique avec la partie embarquée dans un même caisson.</li>
+      </ul>
+
+      <div class="next-prev">
+        <a href="robot-suiveur.html">← Robot suiveur de ligne</a>
+        <a href="liberteau.html">Libert'Eau →</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Louis Delfosse</span>
+    <span>Site fait main en HTML/CSS · hébergé sur GitHub Pages</span>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

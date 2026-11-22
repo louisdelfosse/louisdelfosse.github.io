@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Du pendule inversé au robot auto-équilibré — Louis Delfosse</title>
+  <meta name="description" content="Modélisation et commande d'un pendule inversé sous MATLAB (placement de pôles, LQR, observateur), puis essais de retour d'état sur un robot auto-équilibré Arduino.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1a33'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f08a24'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Navigation principale">
+    <a class="brand" href="../index.html"><span class="dot"></span>Louis Delfosse <small>// mécatronique</small></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a class="link" href="../index.html#competences">Compétences</a></li>
+      <li><a class="link" href="../index.html#projets" aria-current="page">Projets</a></li>
+      <li><a class="link" href="../index.html#parcours">Parcours</a></li>
+      <li><a class="link" href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="rail"></div>
+</header>
+
+<main>
+  <section class="project-hero" id="haut" data-waypoint="début">
+    <div class="wrap">
+      <a class="crumb" href="../index.html#projets">← tous les projets</a>
+      <h1>Du pendule inversé au robot auto-équilibré</h1>
+      <p class="lead">Stabiliser un système instable : d'abord en simulation sous MATLAB, puis sur un vrai robot à deux roues.</p>
+      <div class="tags"><span class="tag">MATLAB</span><span class="tag">Représentation d'état</span><span class="tag">LQR</span><span class="tag">Observateur</span><span class="tag">Arduino</span><span class="tag">MPU6050</span></div>
+      <div class="facts">
+        <div class="fact"><b>Cadre</b><span>Robotique et intelligence embarquée, 5A</span></div>
+        <div class="fact"><b>Période</b><span>Octobre – novembre 2026</span></div>
+        <div class="fact"><b>Équipe</b><span>Binôme (TP1), groupe de 4 (TP2)</span></div>
+        <div class="fact"><b>Mon code</b><span>MATLAB, tout l'Arduino du TP2</span></div>
+      </div>
+    </div>
+  </section>
+  <article class="article">
+    <div class="wrap">
+
+      <h2 id="contexte" data-waypoint="contexte"><span class="num">01</span>Contexte</h2>
+      <p>Deux TP enchaînés du cours « Robotique et intelligence embarquée » : d'abord modéliser et stabiliser un pendule inversé sur chariot en simulation (MATLAB), puis appliquer les mêmes outils sur un vrai robot auto-équilibré à deux roues (kit Keyestudio KS0193, Arduino).</p>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/pendule/schema-pendule.jpg" alt="Schéma du pendule inversé sur chariot" loading="lazy"><figcaption>Le modèle : chariot, pendule, force de commande</figcaption></figure>
+        <figure><img src="../assets/img/pendule/robot-keyestudio.jpg" alt="Robot auto-équilibré Keyestudio" loading="lazy"><figcaption>Le robot auto-équilibré du TP2</figcaption></figure>
+      </div>
+
+      <h2 id="role" data-waypoint="mon rôle"><span class="num">02</span>Mon rôle</h2>
+      <p>TP1 en <strong>binôme</strong> : mise en équations, code MATLAB et rapport, partagés à deux. TP2 en groupe de 4 : <strong>j'ai écrit tout le code Arduino</strong>.</p>
+
+      <h2 id="modele" data-waypoint="modèle"><span class="num">03</span>Modéliser et analyser</h2>
+      <ul class="checks">
+        <li>Équations de Lagrange, forme d'état non linéaire, puis <strong>linéarisation</strong> autour de la verticale haute.</li>
+        <li>Analyse en boucle ouverte (mode instable), <strong>commandabilité</strong> et <strong>observabilité</strong> selon les capteurs disponibles.</li>
+      </ul>
+
+      <h2 id="commande" data-waypoint="commande"><span class="num">04</span>Commander et estimer</h2>
+      <p>Deux méthodes de retour d'état comparées : <strong>placement de pôles</strong> et <strong>LQR</strong> (influence des poids Q et R sur la rapidité et l'effort). Comme toutes les grandeurs ne sont pas mesurées, un <strong>observateur de Luenberger</strong> reconstruit l'état. Tout est validé sur le modèle non linéaire, avec un bruit de mesure ajouté.</p>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/pendule/observateur-non-lineaire.jpg" alt="Courbes réel contre estimé avec observateur" loading="lazy"><figcaption>Observateur sur le modèle non linéaire : réel et estimé se superposent</figcaption></figure>
+        <figure><img src="../assets/img/pendule/retour-complet-vs-estime.jpg" alt="Comparaison retour d'état complet et estimé" loading="lazy"><figcaption>Retour d'état complet contre retour estimé</figcaption></figure>
+      </div>
+      <figure><img src="../assets/img/pendule/animations.jpg" alt="Animations 2D et 3D du pendule sous MATLAB" loading="lazy"><figcaption>Animations 2D et 3D réalisées sous MATLAB</figcaption></figure>
+
+      <h2 id="robot" data-waypoint="robot"><span class="num">05</span>Sur le vrai robot</h2>
+      <ul class="checks">
+        <li>Capteurs : centrale inertielle MPU6050 (angle filtré) et codeurs à effet Hall sur les roues.</li>
+        <li>Régulation en cascade : PD sur l'angle, PI sur la vitesse, échantillonnage par interruption timer.</li>
+        <li>Retour d'état z = [s, ṡ, θ, θ̇] avec un gain K calculé sous MATLAB (placement de pôles), réglé en essais grâce à la télémétrie.</li>
+      </ul>
+      <figure><img src="../assets/img/pendule/architecture-arduino.jpg" alt="Architecture de la boucle de commande" loading="lazy"><figcaption>Architecture : correcteur et estimation sur l'Arduino, actionneurs et capteurs sur le robot</figcaption></figure>
+      <div class="callout warn">
+        <strong>Résultat honnête :</strong> le retour d'état fonctionnait en simulation, mais il n'a pas réussi à stabiliser le robot réel. Pistes à vérifier : la conversion entre le couple calculé et la commande PWM des moteurs, la zone morte des moteurs et le bruit des capteurs.
+      </div>
+
+      <h2 id="resultats" data-waypoint="bilan"><span class="num">06</span>Ce que j'ai appris</h2>
+      <ul class="checks">
+        <li>La démarche complète d'un asservissement : modèle, linéarisation, analyse, synthèse, validation non linéaire.</li>
+        <li>Le compromis rapidité / effort de commande, visible directement dans le choix des poids LQR.</li>
+        <li>L'écart entre simulation et réel : unités, saturation, zone morte et bruit ne sont pas dans le modèle, et ils comptent.</li>
+      </ul>
+
+      <div class="next-prev">
+        <a href="lidar.html">← Lidar et SLAM</a>
+        <a href="ros2.html">Formation ROS 2 →</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Louis Delfosse</span>
+    <span>Site fait main en HTML/CSS · hébergé sur GitHub Pages</span>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

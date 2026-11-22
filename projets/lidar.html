@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cartographie et localisation par lidar — Louis Delfosse</title>
+  <meta name="description" content="Cartographie, localisation et SLAM avec un lidar LD06 sur robot Mecanum : grid map, carte vectorielle, scan matching, en Python.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1a33'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f08a24'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Navigation principale">
+    <a class="brand" href="../index.html"><span class="dot"></span>Louis Delfosse <small>// mécatronique</small></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a class="link" href="../index.html#competences">Compétences</a></li>
+      <li><a class="link" href="../index.html#projets" aria-current="page">Projets</a></li>
+      <li><a class="link" href="../index.html#parcours">Parcours</a></li>
+      <li><a class="link" href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="rail"></div>
+</header>
+
+<main>
+  <section class="project-hero" id="haut" data-waypoint="début">
+    <div class="wrap">
+      <a class="crumb" href="../index.html#projets">← tous les projets</a>
+      <h1>Cartographie, localisation et SLAM par lidar</h1>
+      <p class="lead">De la mesure brute d'un lidar LD06 à la carte de la salle, puis à la localisation du robot et à un premier SLAM.</p>
+      <div class="tags"><span class="tag">Lidar LD06</span><span class="tag">Python</span><span class="tag">SLAM</span><span class="tag">Scan matching</span><span class="tag">Git</span><span class="tag">pytest</span></div>
+      <div class="facts">
+        <div class="fact"><b>Cadre</b><span>Robotique mobile, 5A EIGSI</span></div>
+        <div class="fact"><b>Période</b><span>Novembre 2026</span></div>
+        <div class="fact"><b>Équipe</b><span>Projet individuel</span></div>
+        <div class="fact"><b>Code</b><span>Python, 25 tests, 23 commits</span></div>
+      </div>
+      <div class="btns" style="margin-top:22px"><a class="btn btn-primary" href="https://github.com/louisdelfosse27-hash/ROBOT" target="_blank" rel="noopener">Voir le code sur GitHub</a></div>
+    </div>
+  </section>
+  <article class="article">
+    <div class="wrap">
+
+      <h2 id="contexte" data-waypoint="contexte"><span class="num">01</span>Contexte</h2>
+      <p>Module « Cartographie et localisation appliquée à la robotique mobile » : en trois jours, construire les outils d'un robot qui se repère avec un lidar. Le robot est une base Mecanum pilotée par un ESP32, avec un lidar LD06 (environ 450 mesures par tour). Le terrain est une salle de classe d'environ 13 m sur 8 m, scannée depuis sept positions.</p>
+      <figure><img src="../assets/img/lidar/robot-mecanum.jpg" alt="Robot Mecanum équipé du lidar LD06" loading="lazy"><figcaption>Le robot Mecanum et son lidar LD06</figcaption></figure>
+
+      <h2 id="role" data-waypoint="mon rôle"><span class="num">02</span>Mon rôle</h2>
+      <p>Projet <strong>individuel</strong> : toute la chaîne logicielle en Python (numpy, pandas, matplotlib, pyserial), versionnée sous Git (23 commits) et testée avec pytest (25 tests).</p>
+
+      <h2 id="mesure" data-waypoint="mesure"><span class="num">03</span>Mesurer</h2>
+      <p>Le lidar envoie ses mesures sur le port série. Je les lis tour par tour, je filtre les points aberrants, puis je passe des coordonnées polaires (angle, distance) aux coordonnées cartésiennes.</p>
+      <figure><img src="../assets/img/lidar/scan-polaire-cartesien.jpg" alt="Scan en polaire puis en cartésien" loading="lazy"><figcaption>Un scan brut en polaire, puis en cartésien, avec les points rejetés</figcaption></figure>
+      <p>Chaque scan est vu depuis son propre robot. Pour les assembler, il faut connaître la position (la « pose ») de chacun : je les ai d'abord réglées à la main avec un outil à curseurs.</p>
+      <figure><img src="../assets/img/lidar/scans-poses.jpg" alt="Sept scans avant et après réglage des poses" loading="lazy"><figcaption>Les sept scans, avant puis après réglage des poses</figcaption></figure>
+
+      <h2 id="cartographie" data-waypoint="cartes"><span class="num">04</span>Cartographier</h2>
+      <ul class="checks">
+        <li><strong>Grid map</strong> : carte en cases de 2 cm, mise à jour par lancer de rayons (Bresenham) : cases traversées libres, case d'impact occupée.</li>
+        <li><strong>Carte vectorielle</strong> : extraction de segments (découpe récursive, moindres carrés, fusion). La salle est décrite par 19 segments.</li>
+      </ul>
+      <figure><img src="../assets/img/lidar/gridmap-progressive.jpg" alt="Construction progressive de la grid map" loading="lazy"><figcaption>La grid map se remplit : un tour, trois tours, puis trois positions</figcaption></figure>
+      <figure><img src="../assets/img/lidar/extraction-segments.jpg" alt="Extraction de segments sur un scan" loading="lazy"><figcaption>Du nuage de points aux segments de mur</figcaption></figure>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/lidar/gridmap-globale.jpg" alt="Grid map de la salle construite à partir de 7 scans" loading="lazy"><figcaption>Grid map de la salle (7 scans)</figcaption></figure>
+        <figure><img src="../assets/img/lidar/carte-vectorielle.jpg" alt="Carte vectorielle de la salle" loading="lazy"><figcaption>Carte vectorielle : les murs en segments</figcaption></figure>
+      </div>
+
+      <h2 id="localisation" data-waypoint="localisation"><span class="num">05</span>Se localiser</h2>
+      <p>Le robot doit retrouver sa position (x, y, θ) en comparant un scan à la carte (<em>scan matching</em>). J'ai codé une recherche exhaustive, puis une recherche multi-résolution plus rapide, et je les ai évaluées sur trois références : grid map, carte vectorielle et scan précédent.</p>
+      <figure><img src="../assets/img/lidar/localisation-avant-apres.jpg" alt="Scan posé à la pose initiale puis à la pose trouvée" loading="lazy"><figcaption>À gauche, le scan à une pose fausse ; à droite, replacé par l'algorithme</figcaption></figure>
+      <figure><img src="../assets/img/lidar/taux-reussite.jpg" alt="Taux de réussite selon la pose initiale" loading="lazy"><figcaption>Taux de réussite selon le décalage de départ, pour les trois références</figcaption></figure>
+
+      <h2 id="slam" data-waypoint="SLAM"><span class="num">06</span>SLAM</h2>
+      <p>Dernière étape : construire la carte en même temps que l'on s'y localise. Pour obtenir des chiffres fiables, j'ai aussi écrit une salle simulée avec un lidar virtuel, où la vraie position est connue exactement.</p>
+      <figure><img src="../assets/img/lidar/slam-reel-trajectoires.jpg" alt="SLAM sur les sept scans réels" loading="lazy"><figcaption>SLAM sur les scans réels : référence, odométrie seule et SLAM</figcaption></figure>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/lidar/slam-simulation.jpg" alt="SLAM dans la salle simulée" loading="lazy"><figcaption>Simulation : vérité terrain, odométrie seule et SLAM</figcaption></figure>
+        <figure><img src="../assets/img/lidar/slam-derive.jpg" alt="Erreur de position, odométrie contre SLAM" loading="lazy"><figcaption>La dérive de l'odométrie, corrigée par le SLAM</figcaption></figure>
+      </div>
+
+      <h2 id="resultats" data-waypoint="résultats"><span class="num">07</span>Résultats</h2>
+      <ul class="checks">
+        <li><strong>Localisation</strong> : 94 % de réussite sur grid map, 100 % sur carte vectorielle (multi-résolution), 75 % entre scans.</li>
+        <li><strong>SLAM en simulation</strong> : 2,7 cm d'erreur moyenne, contre 40,7 cm avec l'odométrie seule.</li>
+        <li><strong>SLAM sur les scans réels</strong> : 5,5 à 9,7 cm, contre 34,8 cm avec l'odométrie seule.</li>
+      </ul>
+      <div class="callout warn">
+        <strong>Ce que j'en retiens :</strong> un chiffre ne vaut que par sa référence. Sur le robot, mes poses de référence étaient réglées à l'œil ; seule la simulation donne des erreurs exactes. Pistes : fermeture de boucle, recalage de type ICP, déplacement automatique du robot.
+      </div>
+      <p>Le code et le compte rendu sont sur GitHub : <a href="https://github.com/louisdelfosse27-hash/ROBOT" target="_blank" rel="noopener">github.com/louisdelfosse27-hash/ROBOT</a>.</p>
+
+      <div class="next-prev">
+        <a href="prehenseur.html">← Préhenseur mécatronique</a>
+        <a href="pendule.html">Pendule et robot auto-équilibré →</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Louis Delfosse</span>
+    <span>Site fait main en HTML/CSS · hébergé sur GitHub Pages</span>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

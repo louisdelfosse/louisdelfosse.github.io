@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Libert'Eau, filtre pour voilier — Louis Delfosse</title>
+  <meta name="description" content="Projet technologique EIGSI : filtre modulable pour récupérer l'eau de pluie et les eaux grises à bord d'un voilier. Chef de projet, conception, prototype.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1a33'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f08a24'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Navigation principale">
+    <a class="brand" href="../index.html"><span class="dot"></span>Louis Delfosse <small>// mécatronique</small></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a class="link" href="../index.html#competences">Compétences</a></li>
+      <li><a class="link" href="../index.html#projets" aria-current="page">Projets</a></li>
+      <li><a class="link" href="../index.html#parcours">Parcours</a></li>
+      <li><a class="link" href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="rail"></div>
+</header>
+
+<main>
+  <section class="project-hero" id="haut" data-waypoint="début">
+    <div class="wrap">
+      <a class="crumb" href="../index.html#projets">← tous les projets</a>
+      <h1>Libert'Eau — filtre modulable pour voilier</h1>
+      <p class="lead">Un système de filtration des eaux grises et de l'eau de pluie, pour gagner en autonomie en eau propre lors des longues navigations.</p>
+      <div class="tags"><span class="tag">Gestion de projet</span><span class="tag">Analyse fonctionnelle</span><span class="tag">CAO 3DEXPERIENCE</span><span class="tag">Prototypage</span><span class="tag">Excel / VBA</span></div>
+      <div class="facts">
+        <div class="fact"><b>Cadre</b><span>Projet technologique 3A, EIGSI</span></div>
+        <div class="fact"><b>Période</b><span>sept. 2024 – mai 2025</span></div>
+        <div class="fact"><b>Équipe</b><span>5 élèves-ingénieurs</span></div>
+        <div class="fact"><b>Mon rôle</b><span>Chef de projet</span></div>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="wrap">
+
+      <h2 id="contexte" data-waypoint="contexte"><span class="num">01</span>Contexte</h2>
+      <p>En mer, l'eau douce est une ressource limitée. Le projet visait à récupérer l'eau de pluie et à réutiliser les eaux grises (douche, évier) d'un voilier pour les tâches qui n'ont pas besoin d'eau potable : vaisselle, ménage, douche. Le système complet a été étudié, et l'élément clé, le filtre, a été conçu et prototypé.</p>
+      <ul class="checks">
+        <li>Objectif : au moins <strong>30 L d'eau filtrée par heure de pluie</strong>.</li>
+        <li>Budget du prototype : <strong>120 €</strong>, avec un maximum de matériaux de récupération.</li>
+        <li>Contraintes : système compact, modulable, facile à entretenir et durable en milieu marin.</li>
+      </ul>
+      <figure><img src="../assets/img/liberteau/poster.jpg" alt="Poster de présentation du projet Libert'Eau" loading="lazy"><figcaption>Poster de fin de projet</figcaption></figure>
+
+      <h2 id="role" data-waypoint="mon rôle"><span class="num">02</span>Mon rôle</h2>
+      <ul class="checks">
+        <li><strong>Chef de projet</strong> : plan directeur, planning, suivi des jalons et des risques, lien avec le tuteur.</li>
+        <li><strong>Outil de gestion</strong> sous Excel/VBA : tableau de bord, Gantt mis à jour selon les aléas, matrices RACI, suivi des dépenses et des retards.</li>
+        <li><strong>Conception</strong> de la partie récupération de l'eau de pluie, en sous-groupe.</li>
+      </ul>
+
+      <h2 id="conception" data-waypoint="conception"><span class="num">03</span>Conception</h2>
+      <p>Après l'analyse fonctionnelle (bête à cornes, pieuvre, tri croisé) et plusieurs brainstormings, nous avons retenu un filtre gravitaire à plusieurs étages. Les étages s'empilent et sont montés sur un tiroir, ce qui permet de sortir tout le bloc pour l'entretien.</p>
+      <p>La filtration se fait en trois étapes : une mousse filtrante pour les gros débris, une mousse au charbon actif pour les odeurs et certains polluants, puis une résine échangeuse d'ions. Une note de calcul sur les pertes de charge des filtres a permis de vérifier le débit en sortie.</p>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/liberteau/croquis-solution.jpg" alt="Croquis de la solution retenue" loading="lazy"><figcaption>Croquis de la solution retenue</figcaption></figure>
+        <figure><img src="../assets/img/liberteau/cao-3dexperience.jpg" alt="Modèle 3D du filtre sous 3DEXPERIENCE" loading="lazy"><figcaption>Modèle 3D sous 3DEXPERIENCE</figcaption></figure>
+      </div>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/liberteau/cao-coupe-poster.jpg" alt="Vue en coupe du produit fini" loading="lazy"><figcaption>Vue en coupe : pentes de répartition entre les étages</figcaption></figure>
+        <figure><img src="../assets/img/liberteau/note-calcul.jpg" alt="Schéma de la note de calcul des pertes de charge" loading="lazy"><figcaption>Note de calcul : pertes de charge à travers les filtres</figcaption></figure>
+      </div>
+
+      <h2 id="prototype" data-waypoint="prototype"><span class="num">04</span>Prototype</h2>
+      <p>La structure devait être imprimée en 3D, mais les essais ont échoué : le matériau étanche n'adhérait pas au plateau. Déjà en retard sur le planning, nous avons construit une solution de secours à partir de matériaux de récupération (seau, plaque de Dibond, tiges filetées, chambres à air). Nous avons aussi obtenu gratuitement la résine échangeuse d'ions auprès d'un fabricant, ce qui a soulagé le budget.</p>
+      <div class="gallery g2">
+        <figure><img src="../assets/img/liberteau/filtres-etages.jpg" alt="Étages de filtration du prototype" loading="lazy"><figcaption>Étages de filtration du prototype</figcaption></figure>
+        <figure><img src="../assets/img/liberteau/prototype.jpg" alt="Prototype assemblé" loading="lazy"><figcaption>Prototype assemblé</figcaption></figure>
+      </div>
+
+      <h2 id="resultats" data-waypoint="résultats"><span class="num">05</span>Résultats</h2>
+      <ul class="checks">
+        <li>Le prototype et sa documentation (rapport, notice utilisateur, poster) ont été livrés dans les délais et sous le budget.</li>
+        <li>Les tests montrent un bon écoulement et l'élimination des grosses particules. En revanche, les particules fines et les résidus de savon ne sont pas retenus, il faudrait un étage de filtration plus fin.</li>
+        <li>Nous avons aussi mené une étude d'industrialisation : moulage composite en deux gammes (économique et biosourcée), chiffrée pour 500 unités, soit environ 250 € la pièce (estimation : le filtre n'a pas été industrialisé).</li>
+      </ul>
+      <div class="callout warn">
+        <strong>Ce que j'en retiens :</strong> un projet est une succession d'imprévus. L'échec de l'impression 3D a montré l'intérêt d'avoir un outil de suivi à jour et un plan de secours. Je prévoirais aujourd'hui plus de temps pour les essais du prototype.
+      </div>
+
+      <div class="next-prev">
+        <a href="mangeoire.html">← Mangeoire connectée</a>
+        <a href="table-elevatrice.html">Table élévatrice →</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Louis Delfosse</span>
+    <span>Site fait main en HTML/CSS · hébergé sur GitHub Pages</span>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robot guide suiveur de ligne — Louis Delfosse</title>
+  <meta name="description" content="Projet de 2e année EIGSI : un robot guide qui suit une ligne pour faire visiter l'école, conçu par une équipe de 25. Mon rôle : schémas électroniques sous KiCad.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1a33'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f08a24'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Navigation principale">
+    <a class="brand" href="../index.html"><span class="dot"></span>Louis Delfosse <small>// mécatronique</small></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a class="link" href="../index.html#competences">Compétences</a></li>
+      <li><a class="link" href="../index.html#projets" aria-current="page">Projets</a></li>
+      <li><a class="link" href="../index.html#parcours">Parcours</a></li>
+      <li><a class="link" href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="rail"></div>
+</header>
+
+<main>
+  <section class="project-hero" id="haut" data-waypoint="début">
+    <div class="wrap">
+      <a class="crumb" href="../index.html#projets">← tous les projets</a>
+      <h1>Robot guide suiveur de ligne</h1>
+      <p class="lead">Un robot qui suit une ligne au sol pour faire visiter l'école, conçu et fabriqué de A à Z par une équipe d'environ 25 élèves.</p>
+      <div class="tags"><span class="tag">KiCad</span><span class="tag">Électronique embarquée</span><span class="tag">Suivi de ligne</span><span class="tag">IHM</span><span class="tag">Travail en équipe</span></div>
+      <div class="facts">
+        <div class="fact"><b>Cadre</b><span>Projet Sciences de l'Ingénieur, 2A</span></div>
+        <div class="fact"><b>Période</b><span>2023 – 2024</span></div>
+        <div class="fact"><b>Équipe</b><span>Environ 25 élèves, par pôles</span></div>
+        <div class="fact"><b>Mon pôle</b><span>Électronique embarquée (KiCad)</span></div>
+      </div>
+    </div>
+  </section>
+  <article class="article">
+    <div class="wrap">
+
+      <h2 id="contexte" data-waypoint="contexte"><span class="num">01</span>Contexte</h2>
+      <p>Projet Sciences de l'Ingénieur de 2e année : concevoir et fabriquer de A à Z un <strong>robot guide</strong> qui suit une ligne au sol pour faire visiter une partie de l'école. Nous travaillions en groupes d'environ 25 élèves, répartis en <strong>pôles</strong> (mécanique, électronique embarquée, informatique…).</p>
+      <div class="gallery g2">
+        <figure class="video-portrait"><video controls muted loop playsinline preload="metadata" poster="../assets/img/suiveur/robot-suiveur-poster.jpg"><source src="../assets/img/suiveur/robot-suiveur.mp4" type="video/mp4">Votre navigateur ne lit pas la vidéo.</video><figcaption>Le robot en train de suivre sa ligne</figcaption></figure>
+        <figure><img src="../assets/img/suiveur/robot-suiveur.jpg" alt="Robot guide suiveur de ligne à plusieurs étages" loading="lazy"><figcaption>Le robot terminé : base motorisée, étages électroniques, IHM en haut</figcaption></figure>
+      </div>
+
+      <h2 id="role" data-waypoint="mon rôle"><span class="num">02</span>Mon rôle</h2>
+      <p>J'étais dans le <strong>pôle électronique embarquée</strong>. J'ai réalisé sous <strong>KiCad</strong> les schémas électroniques du robot complet.</p>
+
+      <h2 id="robot" data-waypoint="robot"><span class="num">03</span>Le robot</h2>
+      <ul class="checks">
+        <li><strong>Suivi de ligne</strong> : le robot suit une bande au sol le long du parcours de visite.</li>
+        <li><strong>IHM</strong> sur le plateau supérieur : un écran et des boutons pour interagir avec le robot.</li>
+        <li><strong>Arrêt d'urgence</strong> coup-de-poing, indispensable pour un robot qui circule au milieu des visiteurs.</li>
+        <li>Une structure en plusieurs étages qui sépare la motorisation, l'électronique et l'interface.</li>
+      </ul>
+
+      <h2 id="bilan" data-waypoint="bilan"><span class="num">04</span>Ce que j'en retiens</h2>
+      <ul class="checks">
+        <li>Travailler à 25 sur un même système, chaque pôle dépendant du travail des autres.</li>
+        <li>Une première expérience de schéma électronique à l'échelle d'un robot complet.</li>
+      </ul>
+
+      <div class="next-prev">
+        <a href="pie-edf.html">← Guidage RA pour EDF</a>
+        <a href="mangeoire.html">Mangeoire connectée →</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Louis Delfosse</span>
+    <span>Site fait main en HTML/CSS · hébergé sur GitHub Pages</span>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
